@@ -14,10 +14,12 @@ class Item:
         :param item_price: цена товара за единицу
         :param item_quantity: количество товара
         """
-        self.item_name = item_name
+        self.__item_name = __item_name
         self.item_price = item_price
         self.item_quantity = item_quantity
         self.all.append(self)
+        if len(__item_name) > 10:
+            raise NameError("Длина названия товара не должна превышать 10 символов")
 
     def calculate_total_price(self):
         """
