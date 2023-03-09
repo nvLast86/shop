@@ -1,3 +1,5 @@
+import csv
+
 class Item:
     """
     Класс для представления товара в магазине.
@@ -45,7 +47,9 @@ class Item:
                 good_list.append(cls(i['name']), int(i['price']), int(i['quantity']))
         return items_list
 
-
+    @staticmethod
+    def is_number_integer(number):
+        return ((type(number)) == int) or (type(number) == float) and (round(number) == number)
 
 
 
