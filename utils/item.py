@@ -36,6 +36,15 @@ class Item:
         self.item_price = Item.pay_rate * self.item_price
         return self.item_price
 
+    @classmethod
+    def load_from_csv(cls, path):
+        with open(path, 'r', newline='') as file:
+            csv_data = csv.DictReader(file)
+            items_list = []
+            for i in csv_data:
+                good_list.append(cls(i['name']), int(i['price']), int(i['quantity']))
+        return items_list
+
 
 
 
