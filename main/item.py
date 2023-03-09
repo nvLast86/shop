@@ -9,9 +9,17 @@ class Item:
         self.all.append(self)
 
     def calculate_total_price(self):
+        """
+        Метод подсчета общей стоимости товара
+        :return: Общая стоимость товара
+        """
         return self.item_price * self.item_quantity
 
     def apply_discount(self):
+        """
+        Метод подсчета стоимости единицы товара с учетом скидки
+        :return: Стоимость единицы товара с учетом скидки
+        """
         self.item_price = Item.pay_rate * self.item_price
         return self.item_price
 
