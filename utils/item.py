@@ -49,7 +49,4 @@ class Item:
 
     @staticmethod
     def is_number_integer(number):
-        return ((type(number)) == int) or (type(number) == float) and (round(number) == number)
-
-
-
+        return ((type(number) == int) or (type(number) == float)) and (round(number) == number)
