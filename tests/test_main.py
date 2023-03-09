@@ -1,5 +1,5 @@
 import pytest
-from main.item import Item
+from utils.item import Item
 
 @pytest.fixture()
 def some_item():
