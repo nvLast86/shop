@@ -60,7 +60,10 @@ class Item:
             csv_data = csv.DictReader(file)
             items_list = []
             for i in csv_data:
-                good_list.append(cls(i['name']), int(i['price']), int(i['quantity']))
+                if i['name'] == 'name':
+                    continue
+                else:
+                    items_list.append(cls(i['name'], int(i['price']), int(i['quantity'])))
         return items_list
 
     @staticmethod
