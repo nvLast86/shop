@@ -11,13 +11,13 @@ class Item:
     pay_rate = 1.0
     all = []
 
-    def __init__(self, item_name, item_price, item_quantity):
+    def __init__(self, item_name='', item_price=0.0, item_quantity=0):
         """
         :param __item_name: название товара
         :param item_price: цена товара за единицу
         :param item_quantity: количество товара
         """
-        self.__item_name = __item_name
+        self.__item_name = item_name
         self.item_price = item_price
         self.item_quantity = item_quantity
         self.all.append(self)
