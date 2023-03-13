@@ -1,5 +1,6 @@
 import csv
 
+
 class Item:
     """
     Класс для представления товара в магазине.
@@ -12,7 +13,7 @@ class Item:
 
     def __init__(self, item_name, item_price, item_quantity):
         """
-        :param item_name: название товара
+        :param __item_name: название товара
         :param item_price: цена товара за единицу
         :param item_quantity: количество товара
         """
@@ -20,8 +21,23 @@ class Item:
         self.item_price = item_price
         self.item_quantity = item_quantity
         self.all.append(self)
-        if len(__item_name) > 10:
-            raise NameError("Длина названия товара не должна превышать 10 символов")
+
+    @property
+    def item_name(self):
+        """
+        Возвращает значение приватного атрибута экземпляра item_name
+        """
+        return self.__item_name
+
+    @item_name.setter
+    def item_name(self, name):
+        """
+        Запись значения приватного атрибута экземпляра item_name
+        """
+        if len(name) <= 10:
+            self.__name = name
+        else:
+            raise Exception('Длина наименования товара превышает 10 символов')
 
     def calculate_total_price(self):
         """
@@ -50,3 +66,5 @@ class Item:
     @staticmethod
     def is_number_integer(number):
         return ((type(number) == int) or (type(number) == float)) and (round(number) == number)
+
+
