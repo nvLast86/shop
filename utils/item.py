@@ -30,14 +30,14 @@ class Item:
         return self.__item_name
 
     @item_name.setter
-    def item_name(self, name):
+    def item_name(self, item_name):
         """
         Запись значения приватного атрибута экземпляра item_name
         """
-        if len(name) <= 10:
-            self.__name = name
+        if len(item_name) <= 10:
+            self.__name = item_name
         else:
-            raise Exception('Длина наименования товара превышает 10 символов')
+            raise Exception('wrong name')
 
     def calculate_total_price(self):
         """
