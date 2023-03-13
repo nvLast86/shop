@@ -20,7 +20,13 @@ def test_apply_discount(some_item):
     Item.pay_rate = 0.5
     assert some_item.apply_discount() == 50
 
+def test_is_number_integer() -> bool:
+    item = Item("name", 50, 2)
+    assert item.is_number_integer(5) is True
+    assert item.is_number_integer(5.0) is True
+    assert item.is_number_integer(5.5) is False
+    assert item.is_number_integer("5") is False
 
-
-
-
+def test_item_name():
+    item = Item("asus_asus_asus", 5, 2)
+    assert item.item_name == 'wrong name'
