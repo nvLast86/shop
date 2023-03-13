@@ -1,18 +1,25 @@
 from utils.item import Item
+import os
+
 
 def main():
-    item1 = Item("Смартфон", 10000, 20)
-    item2 = Item("Ноутбук", 20000, 5)
+    path = os.sep.join(['files', 'items.csv'])
 
-    print(item1.calculate_total_price())
-    print(item2.calculate_total_price())
+    item = Item('Телефон', 10000, 5)
+    item.item_name = 'Смартфон'
+    print(item.item_name)
 
-    Item.pay_rate = 0.8  # устанавливаем новый уровень цен
-    item1.apply_discount()
-    print(item1.item_price)
-    print(item2.item_price)
+    #item.item_name = 'СуперСмартфон'
 
-    print(Item.all)
+    Item.load_from_csv(path)  # создание объектов из данных файла
+    print(len(Item.all))  # в файле 5 записей с данными по товарам
+
+    item1 = Item.all[0]
+    print(item1.item_name)
+
+    print(Item.is_number_integer(5))
+    print(Item.is_number_integer(5.0))
+    print(Item.is_number_integer(5.5))
 
 
 if __name__ == "__main__":
