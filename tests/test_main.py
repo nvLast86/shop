@@ -27,6 +27,7 @@ def test_is_number_integer() -> bool:
     assert item.is_number_integer(5.5) is False
     assert item.is_number_integer("5") is False
 
-def test_item_name():
-    item = Item("asus_asus_asus", 5, 2)
-    assert item.item_name == 'wrong name'
+def test_item_name():  # тест длины названия
+    item = Item('Смартфон', 10000, 20)
+    with pytest.raises(Exception):
+        item.item_name = 'СмартфонСмартфон'
