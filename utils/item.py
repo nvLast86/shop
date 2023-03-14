@@ -39,6 +39,12 @@ class Item:
         else:
             raise Exception('wrong name')
 
+    def __repr__(self):
+        return f'Товар: {self.__item_name}, цена: {self.item_price}, кол-во: {self.item_quantity}'
+
+    def __str__(self):
+        return f'стоимость {self.__item_name} со скидкой {1- Item.pay_rate}'
+
     def calculate_total_price(self):
         """
         Метод подсчета общей стоимости товара
