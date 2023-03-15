@@ -56,7 +56,9 @@ class Item:
 
     @classmethod
     def load_from_csv(cls, path):
-        """Создаёт новые экзэмпляры из csv файла"""
+        """
+        Создаёт новые экземпляры из csv файла
+        """
         with open(path, 'r', encoding='windows-1251', newline='') as csvfile:
             reader = csv.DictReader(csvfile, delimiter=',')
             for row in reader:
