@@ -6,6 +6,11 @@ def test_load_from_csv():
     Item.load_from_csv('file.csv')
     assert len(Item.all) == 5
 
+def test_repr_str():
+    item1 = Item("Смартфон", 10000, 20)
+    assert repr(item1) == repr(Item("Смартфон", 10000, 20))
+    assert str(item1) == "Смартфон"
+
 @pytest.fixture()
 def some_item():
     return Item('test_position', 100, 10)
