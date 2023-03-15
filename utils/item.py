@@ -43,7 +43,7 @@ class Item:
         return f"Товар: {self.__item_name}. Цена: {self.item_price}. Количество: {self.item_quantity}"
 
     def __str__(self):
-        return f'{self._item_name}'
+        return f'{self.__item_name}'
 
     def calculate_total_price(self):
         """
