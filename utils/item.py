@@ -56,12 +56,11 @@ class Item:
 
     @classmethod
     def load_from_csv(cls, path):
-        with open(path, 'r', newline='') as file:
-            csv_data = csv.DictReader(file)
-            items_list = []
-            for i in csv_data:
-                items_list.append(cls(i['name'], int(i['price']), int(i['quantity'])))
-        return items_list
+        """Создаёт новые экзэмпляры из csv файла"""
+        with open(path, 'r', encoding='windows-1251', newline='') as csvfile:
+            reader = csv.DictReader(csvfile, delimiter=',')
+            for row in reader:
+                cls(row['name'], int(row['price']), int(row['quantity']))
 
     @staticmethod
     def is_number_integer(number):
