@@ -1,6 +1,11 @@
 import pytest
 from utils.item import Item
 
+
+def test_load_from_csv():
+    Item.load_from_csv('file.csv')
+    assert len(Item.all) == 5
+
 @pytest.fixture()
 def some_item():
     return Item('test_position', 100, 10)
@@ -26,6 +31,7 @@ def test_is_number_integer():
     assert item.is_number_integer(5.0) is True
     assert item.is_number_integer(5.5) is False
     assert item.is_number_integer("5") is False
+
 
 def test_load_from_csv():
     Item.load_from_csv('file.csv')
