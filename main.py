@@ -1,32 +1,12 @@
-from utils.item import Item
+from utils.item import *
 import os
 
 def main():
-    item1 = Item("Смартфон", 10000, 20)
-    Item('Смартфон', 10000, 20)
-    print(item1)
+    phone1 = Phone('Iphone 14', 120_000, 5, 0)
+    print(phone1)
+    print(repr(phone1))
+    phone1.number_of_sim = 0
 
-
-"""
-def main():
-    path = os.sep.join(['files', 'items.csv'])
-
-    #item = Item('Телефон', 10000, 5)
-    #item.item_name = 'Смартфон'
-    #print(item.item_name)
-
-    #item.item_name = 'СуперСмартфон'
-
-    Item.load_from_csv(path)  # создание объектов из данных файла
-    print(len(Item.all))  # в файле 5 записей с данными по товарам
-
-    item1 = Item.all[0]
-    print(item1.item_name)
-
-    print(Item.is_number_integer(5))
-    print(Item.is_number_integer(5.0))
-    print(Item.is_number_integer(5.5))
-"""
 
 if __name__ == "__main__":
     main()
