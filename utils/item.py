@@ -75,3 +75,20 @@ class Item:
         return ((type(number) == int) or (type(number) == float)) and (round(number) == number)
 
 
+class Phone(Item):
+
+    def __init__(self, item_name='', item_price=0.0, item_quantity=0, number_of_sim=1):
+        super().__init__(item_name, item_price, item_quantity)
+        if number_of_sim < 1:
+            raise ValueError('Количество сим карт не может быть меньше единицы')
+        else:
+            self.number_of_sim = number_of_sim
+
+    def __add__(self, other):
+        if isinstance(other, Item):
+            return self.item_quantity + other.item_quantity
+        else:
+            raise ValueError('Сложение не возможно')
+
+
+
