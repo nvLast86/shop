@@ -84,11 +84,16 @@ class Phone(Item):
         else:
             self.number_of_sim = number_of_sim
 
+    def __repr__(self):
+        return f'Телефон, модель: {self.item_name}, цена: {self.item_price}, количество на складе:' \
+               f' {self.item_quantity}, количество слотов под сим-карты: {self.number_of_sim}'
+
     def __add__(self, other):
         if isinstance(other, Item):
             return self.item_quantity + other.item_quantity
         else:
             raise ValueError('Сложение не возможно')
+
 
 
 
