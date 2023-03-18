@@ -78,11 +78,11 @@ class Item:
 class Phone(Item):
 
     def __init__(self, item_name='', item_price=0.0, item_quantity=0, number_of_sim=1):
-        super().__init__(item_name, item_price, item_quantity)
         if number_of_sim < 1:
             raise ValueError('Количество сим карт не может быть меньше единицы')
-        else:
-            self.number_of_sim = number_of_sim
+        self.number_of_sim = number_of_sim
+        super().__init__(item_name, item_price, item_quantity)
+
 
     def __repr__(self):
         return f'Телефон, модель: {self.item_name}, цена: {self.item_price}, количество на складе:' \
