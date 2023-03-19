@@ -11,9 +11,9 @@ class Mixinlang:
     def language(self):
         return self.__language
 
-    @language.setter
-    def language(self, value):
-        self.__language = value
+#    @language.setter
+#    def language(self, value):
+#        self.__language = value
 
 
     def change_lang(self):
@@ -28,16 +28,3 @@ class KeyBoard(Mixinlang, Item):
 
 
 
-
-kb = KeyBoard('Dark Project KD87A', 9600, 5)
-print(kb)
-
-
-print(kb.language)
-
-
-kb.change_lang()
-print(kb.language)
-
-
-kb.language = 'CH'
