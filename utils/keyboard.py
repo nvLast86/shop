@@ -1,10 +1,7 @@
 from item import Item
 
-class Keyboard(Item, Mixinlang):
-    super().__init__()
 
-
-class Mixinglang:
+class Mixinlang:
 
     def __init__(self, *args):
         self.__language = 'EN'
@@ -20,3 +17,22 @@ class Mixinglang:
         else:
             self.__language = 'RU'
 
+
+class KeyBoard(Mixinlang, Item):
+    pass
+
+
+
+
+kb = KeyBoard('Dark Project KD87A', 9600, 5)
+print(kb)
+
+
+print(kb.language)
+
+
+kb.change_lang()
+print(kb.language)
+
+
+kb.language = 'CH'
