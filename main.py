@@ -1,11 +1,17 @@
 from utils.item import *
-import os
+from keyboard import KeyBoard
+
 
 def main():
-    phone1 = Phone('Iphone 14', 120_000, 5, 0)
-    print(phone1)
-    print(repr(phone1))
-    phone1.number_of_sim = 0
+    kb = KeyBoard('Dark Project KD87A', 9600, 5)
+    print(kb)
+
+    print(kb.language)
+
+    kb.change_lang()
+    print(kb.language)
+
+    kb.language = 'CH'
 
 
 if __name__ == "__main__":
