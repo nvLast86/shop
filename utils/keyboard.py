@@ -1,4 +1,4 @@
-from item import Item
+from utils.item import Item
 
 
 class Mixinlang:
@@ -11,10 +11,10 @@ class Mixinlang:
     def language(self):
         return self.__language
 
-    # @language.setter
-    # def language(self, value):
-    #     self.__language = value
-    #
+    @language.setter
+    def language(self, value):
+        self.__language = value
+
     # @language.getter
     # def language(self):
     #     return self.__language
