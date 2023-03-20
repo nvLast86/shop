@@ -1,17 +1,33 @@
 import pytest
 from utils.item import *
+from utils.keyboard import *
+
+# @pytest.fixture()
+# def some_phone():
+#      return Phone('phone14', 100, 10, 2)
 
 @pytest.fixture()
-def some_phone():
-     return Phone('phone14', 100, 10, 2)
+def some_keyboard():
+    return KeyBoard('Logitech k300', 3000, 5)
 
 
-def test_repr_phone(some_phone):
-    assert repr(some_phone) == 'Телефон, модель: phone14, цена: 100, количество на складе: 10, количество ' \
-                               'слотов под сим-карты: 2'
+def test_cls_keyboard(some_keyboard):
+    assert str(some_keyboard) == 'Logitech k300'
+    assert some_keyboard.language == 'EN'
+    some_keyboard.change_lang()
+    assert str(some_keyboard.language) == 'RU'
 
-    with pytest.raises(ValueError):
-        some_phone.number_of_sim = 0
+
+
+
+# def test_repr_phone(some_phone):
+#     assert repr(some_phone) == 'Телефон, модель: phone14, цена: 100, количество на складе: 10, количество ' \
+#                                'слотов под сим-карты: 2'
+#
+#     with pytest.raises(ValueError):
+#         some_phone.number_of_sim = 0
+
+
 
 
 # #
