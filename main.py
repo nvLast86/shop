@@ -1,5 +1,5 @@
 from utils.item import *
-from keyboard import KeyBoard
+from utils.keyboard import KeyBoard
 
 
 def main():
