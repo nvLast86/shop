@@ -1,7 +1,8 @@
 from utils.item import Item
 
 
-class Mixinlang:
+class MixinLang:
+    """Класс Mixin для реализации атрибута __language и метода change_lang() для смены его значения."""
 
     def __init__(self, *args):
         self.__language = 'EN'
@@ -15,10 +16,9 @@ class Mixinlang:
     def language(self, value):
         self.__language = value
 
-    # @language.getter
-    # def language(self):
-    #     return self.__language
-
+    @language.getter
+    def language(self):
+        return self.__language
 
     def change_lang(self):
         if self.__language == 'RU':
@@ -27,18 +27,11 @@ class Mixinlang:
             self.__language = 'RU'
 
 
-class KeyBoard(Mixinlang, Item):
+class KeyBoard(MixinLang, Item):
+    """
+    Класс KeyBoard, наследник классов MixinLang, Item
+    """
     pass
 
 
-
-kb = KeyBoard('Dark Project KD87A', 9600, 5)
-print(kb)
-
-print(kb.language)
-
-kb.change_lang()
-print(kb.language)
-
-kb.language = 'CH'
 
