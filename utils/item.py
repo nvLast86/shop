@@ -1,4 +1,6 @@
 import csv
+from utils.csverror import InstantiateCSVError
+import os
 
 
 class Item:
@@ -65,10 +67,15 @@ class Item:
         """
         Создаёт новые экземпляры из csv файла
         """
-        with open(path, 'r', encoding='windows-1251', newline='') as csvfile:
-            reader = csv.DictReader(csvfile, delimiter=',')
-            for row in reader:
-                cls(row['name'], int(row['price']), int(row['quantity']))
+        if not os.path.exists(path) and os.path.isfile(path):
+            raise FileNotFoundError("Отсутствует файл items.csv")
+        try:
+            with open(path, 'r', encoding='windows-1251', newline='') as csvfile:
+                reader = csv.DictReader(csvfile, delimiter=',')
+                for row in reader:
+                    cls(row['name'], int(row['price']), int(row['quantity']))
+        except KeyError:
+            InstantiateCSVError('Файл items.csv поврежден')
 
     @staticmethod
     def is_number_integer(number):
@@ -82,7 +89,6 @@ class Phone(Item):
             raise ValueError('Количество сим карт не может быть меньше единицы')
         self.number_of_sim = number_of_sim
         super().__init__(item_name, item_price, item_quantity)
-
 
     def __repr__(self):
         return f'Телефон, модель: {self.item_name}, цена: {self.item_price}, количество на складе:' \
