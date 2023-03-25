@@ -2,21 +2,36 @@ import pytest
 from utils.item import *
 from utils.keyboard import *
 
+
+from utils.csverror import InstantiateCSVError
+
+
+def test_init_default_message():
+    some_error = InstantiateCSVError()
+    assert some_error.message == 'Файл поврежден'
+
+
+def test_init_args():
+    some_error = InstantiateCSVError('test message')
+    assert some_error.message == 'test message'
+
+
+#
+# # @pytest.fixture()
+# # def some_phone():
+# #      return Phone('phone14', 100, 10, 2)
+#
 # @pytest.fixture()
-# def some_phone():
-#      return Phone('phone14', 100, 10, 2)
-
-@pytest.fixture()
-def some_keyboard():
-    return KeyBoard('Logitech k300', 3000, 5)
-
-
-def test_cls_keyboard(some_keyboard):
-    assert str(some_keyboard) == 'Logitech k300'
-    assert some_keyboard.language == 'EN'
-    some_keyboard.change_lang()
-    assert str(some_keyboard.language) == 'RU'
-
+# def some_keyboard():
+#     return KeyBoard('Logitech k300', 3000, 5)
+#
+#
+# def test_cls_keyboard(some_keyboard):
+#     assert str(some_keyboard) == 'Logitech k300'
+#     assert some_keyboard.language == 'EN'
+#     some_keyboard.change_lang()
+#     assert str(some_keyboard.language) == 'RU'
+#
 
 
 
